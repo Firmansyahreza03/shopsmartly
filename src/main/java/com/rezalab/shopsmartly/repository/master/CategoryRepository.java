@@ -11,4 +11,8 @@ import org.springframework.stereotype.Repository;
 public interface CategoryRepository extends CrudRepository<Category, Long> {
     @Query(value = "SELECT r FROM Category r where r.active=true AND (lower(r.name) like %:sSearch% or lower(r.code) like %:sSearch)")
     Page<Category> getPageable(@Param("sSearch") String sSearch);
+
+    Category findByNameAndActiveTrue(String name);
+
+    Category findByCodeAndActiveTrue(String code);
 }

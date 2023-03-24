@@ -13,4 +13,14 @@ public interface CompanyRepository extends CrudRepository<Company, Long> {
             "lower(r.address) like %:Search% or lower(r.secondAddress) like %:sSearch% or lower(r.zip) like " +
             "%:sSearch% or lower(r.phoneNumber) like %:sSearch%)")
     Page<Company> getPageable(@Param("sSearch") String sSearch);
+
+    Company findByNameAndActiveTrue(String name);
+
+    Company findByAddressAndActiveTrue(String address);
+
+    Company findBySecondAddressAndActiveTrue(String secondAddress);
+
+    Company findByZipAndActiveTrue(String zip);
+
+    Company findByPhoneNumberAndActiveTrue(String phoneNumber);
 }
