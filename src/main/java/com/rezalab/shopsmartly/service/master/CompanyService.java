@@ -8,8 +8,6 @@ public interface CompanyService extends BaseService<CompanyWrapper, Long> {
 
     CompanyWrapper findByAddress(String address) throws Exception;
 
-    CompanyWrapper findBySecondAddress(String secondAddress) throws Exception;
-
     CompanyWrapper findByZip(String zip) throws Exception;
 
     CompanyWrapper findByPhoneNumber(String phoneNumber) throws Exception;

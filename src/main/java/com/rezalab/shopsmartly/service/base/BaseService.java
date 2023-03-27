@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BaseService<T, Z> {
 
-    T save(T entity) throws Exception;
+    T save(T wrapper) throws Exception;
 
     T findById(Z pk) throws Exception;
 
@@ -16,5 +16,5 @@ public interface BaseService<T, Z> {
 
     void deleteALl() throws Exception;
 
-    Page<T> getPageable(String sSearch);
+    Page<T> getPageable(String sSearch) throws Exception;
 }

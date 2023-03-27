@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface CompanyRepository extends CrudRepository<Company, Long> {
     @Query(value = "Select r from Company r where r.active=true and (lower(r.name) like %:sSearch% or " +
@@ -14,13 +16,13 @@ public interface CompanyRepository extends CrudRepository<Company, Long> {
             "%:sSearch% or lower(r.phoneNumber) like %:sSearch%)")
     Page<Company> getPageable(@Param("sSearch") String sSearch);
 
-    Company findByNameAndActiveTrue(String name);
+    Optional<Company> findByNameAndActiveTrue(String name);
 
-    Company findByAddressAndActiveTrue(String address);
+    Optional<Company> findByAddressAndActiveTrue(String address);
 
-    Company findBySecondAddressAndActiveTrue(String secondAddress);
+    Optional<Company> findBySecondAddressAndActiveTrue(String secondAddress);
 
-    Company findByZipAndActiveTrue(String zip);
+    Optional<Company> findByZipAndActiveTrue(String zip);
 
-    Company findByPhoneNumberAndActiveTrue(String phoneNumber);
+    Optional<Company> findByPhoneNumberAndActiveTrue(String phoneNumber);
 }

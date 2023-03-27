@@ -1,12 +1,13 @@
 package com.rezalab.shopsmartly.model.user;
 
+import com.rezalab.shopsmartly.model.base.BaseModel;
 import com.rezalab.shopsmartly.model.master.Role;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-public class UserAccount {
+@Entity
+@Table(name = "user_account")
+public class UserAccount extends BaseModel {
     @Column(name = "user_email", unique = true)
     private String email;
     @Column(name = "user_password", length = 16)

@@ -1,7 +1,7 @@
 package com.rezalab.shopsmartly.service.user;
 
 import com.rezalab.shopsmartly.service.base.BaseService;
-import com.rezalab.shopsmartly.service.user.Wrapper.UserInfoWrapper;
+import com.rezalab.shopsmartly.service.user.wrapper.UserInfoWrapper;
 
 import java.time.LocalDate;
 import java.util.List;

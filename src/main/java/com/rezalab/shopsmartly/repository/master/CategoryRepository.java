@@ -7,12 +7,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface CategoryRepository extends CrudRepository<Category, Long> {
     @Query(value = "SELECT r FROM Category r where r.active=true AND (lower(r.name) like %:sSearch% or lower(r.code) like %:sSearch)")
     Page<Category> getPageable(@Param("sSearch") String sSearch);
 
-    Category findByNameAndActiveTrue(String name);
+    Optional<Category> findByNameAndActiveTrue(String name);
 
-    Category findByCodeAndActiveTrue(String code);
+    Optional<Category> findByCodeAndActiveTrue(String code);
 }

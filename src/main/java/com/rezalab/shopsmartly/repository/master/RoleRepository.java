@@ -7,11 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Long> {
-    Role findByCodeAndActiveTrue(String code);
+    Optional<Role> findByCodeAndActiveTrue(String code);
 
-    Role findByNameAndActiveTrue(String name);
+    Optional<Role> findByNameAndActiveTrue(String name);
 
     @Query(value = "select r from Role r where r.active=true and (lower(r.name) like %:sSearch% or " +
             "lower(r.code) like %:sSearch%)")

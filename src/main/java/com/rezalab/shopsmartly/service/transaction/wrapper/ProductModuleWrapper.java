@@ -2,6 +2,9 @@ package com.rezalab.shopsmartly.service.transaction.wrapper;
 
 import com.rezalab.shopsmartly.service.base.wrapper.BaseWrapper;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 public class ProductModuleWrapper extends BaseWrapper {
     private static final long serialVersionUID = 5013890898486380051L;
 
@@ -11,6 +14,16 @@ public class ProductModuleWrapper extends BaseWrapper {
     private Long storeId;
     private String storeName;
     private String storeCode;
+    private BigDecimal price;
+    private LocalDate date;
+
+    public BigDecimal getPrice() {return price;}
+
+    public void setPrice(BigDecimal price) {this.price = price;}
+
+    public LocalDate getDate() {return date;}
+
+    public void setDate(LocalDate date) {this.date = date;}
 
     public String getProductName() { return productName; }
 

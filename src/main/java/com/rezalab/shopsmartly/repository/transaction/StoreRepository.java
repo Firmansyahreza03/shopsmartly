@@ -7,15 +7,17 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface StoreRepository extends CrudRepository<Store, Long> {
-    Store findByNameAndActiveTrue(String name);
+    Optional<Store> findByNameAndActiveTrue(String name);
 
-    Store findByCodeAndActiveTrue(String code);
+    Optional<Store> findByCodeAndActiveTrue(String code);
 
     @Query(value = "select r from Store r where r.active=true and (lower(r.address) like %:sSearch% or " +
             "lower(r.secondAddress) like %:sSearch%)")
-    Store findByAddress(@Param("sSearch") String address);
+    Optional<Store> findByAddress(@Param("sSearch") String address);
 
     @Query(value = "select r from Store r where r.active=true and (lower(r.name) like %:sSearch% or " +
             "lower(r.code) like %:sSearch% or lower(r.address) like %:sSearch% or " +

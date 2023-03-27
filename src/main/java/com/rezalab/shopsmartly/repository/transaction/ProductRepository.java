@@ -7,17 +7,19 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
-    Product findByNameAndActiveTrue(String name);
+    Optional<Product> findByNameAndActiveTrue(String name);
 
-    Product findByCodeAndActiveTrue(String code);
+    Optional<Product> findByCodeAndActiveTrue(String code);
 
-    Product findByFileNameAndActiveTrue(String fileName);
+    Optional<Product> findByFileNameAndActiveTrue(String fileName);
 
-    Product findByCategoryNameAndActiveTrue(String name);
+    Optional<Product> findByCategoryNameAndActiveTrue(String name);
 
-    Product findByCategoryCodeAndActiveTrue(String code);
+    Optional<Product> findByCategoryCodeAndActiveTrue(String code);
 
     @Query(value = "select r from Product r where r.active=true and (lower(r.name) like %:sSearch% or " +
             "lower(r.code) like %:sSearch% or lower(r.description) like %:sSearch% or " +

@@ -1,4 +1,4 @@
-package com.rezalab.shopsmartly.service.user.Wrapper;
+package com.rezalab.shopsmartly.service.user.wrapper;
 
 import com.rezalab.shopsmartly.service.base.wrapper.BaseWrapper;
 
