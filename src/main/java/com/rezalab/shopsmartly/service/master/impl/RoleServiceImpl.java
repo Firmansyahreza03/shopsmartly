@@ -91,11 +91,13 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleWrapper findByCode(String code) throws Exception {
-        return null;
+        Optional<Role> model = roleRepository.findByCodeAndActiveTrue(code);
+        return model.map(this::toWrapper).orElse(null);
     }
 
     @Override
     public RoleWrapper findByName(String name) throws Exception {
-        return null;
+        Optional<Role> model = roleRepository.findByNameAndActiveTrue(name);
+        return model.map(this::toWrapper).orElse(null);
     }
 }

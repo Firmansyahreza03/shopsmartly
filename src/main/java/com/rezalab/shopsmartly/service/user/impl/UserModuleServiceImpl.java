@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -99,33 +100,44 @@ public class UserModuleServiceImpl implements UserModuleService {
     }
 
 
+    @Transactional(rollbackOn = Exception.class)
     @Override
     public UserModuleWrapper save(UserModuleWrapper wrapper) throws Exception {
-        return null;
+        return toWrapper(userModuleRepository.save(toEntity(wrapper)));
     }
 
     @Override
     public UserModuleWrapper findById(Long pk) throws Exception {
-        return null;
+        Optional<UserModule> optModel = userModuleRepository.findById(pk);
+        return optModel.map(this::toWrapper).orElse(null);
     }
 
+    @Transactional(rollbackOn = Exception.class)
     @Override
     public Boolean delete(Long pk) throws Exception {
-        return null;
+        UserModuleWrapper wrapper = findById(pk);
+        if (wrapper != null) {
+            wrapper.setActive(false);
+            userModuleRepository.save(toEntity(wrapper));
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public List<UserModuleWrapper> findAll() throws Exception {
-        return null;
+        return toWrapperList((List<UserModule>) userModuleRepository.findAll());
     }
 
     @Override
     public void deleteALl() throws Exception {
-
+        // not implemented
     }
 
     @Override
     public Page<UserModuleWrapper> getPageable(String sSearch) throws Exception {
+        // not implemented
         return null;
     }
 }
