@@ -6,8 +6,6 @@ import com.rezalab.shopsmartly.service.master.CategoryService;
 import com.rezalab.shopsmartly.service.master.wrapper.CategoryWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -79,14 +77,20 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Page<CategoryWrapper> getPageable(String sSearch) throws Exception {
+    public List<CategoryWrapper> getPageable(String sSearch) throws Exception {
         try {
-            Page<Category> bookPage = categoryRepository.getPageable(sSearch);
-            List<CategoryWrapper> wrapperList = toWrapperList(bookPage.getContent());
-            return new PageImpl<>(wrapperList, null, bookPage.getTotalElements());
+            List<Category> bookPage = categoryRepository.getPageable(sSearch);
+            List<CategoryWrapper> wrapperList = toWrapperList(bookPage);
+            return wrapperList;
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e.getCause());
         }
+    }
+
+    @Override
+    public CategoryWrapper updateById(Long pk, CategoryWrapper wrapper) throws Exception {
+        // not implemented
+        return null;
     }
 
     @Override
@@ -100,4 +104,5 @@ public class CategoryServiceImpl implements CategoryService {
         Optional<Category> model = categoryRepository.findByCodeAndActiveTrue(code);
         return model.map(this::toWrapper).orElse(null);
     }
+
 }

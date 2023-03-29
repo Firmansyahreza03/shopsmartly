@@ -1,7 +1,5 @@
 package com.rezalab.shopsmartly.service.base;
 
-import org.springframework.data.domain.Page;
-
 import java.util.List;
 
 public interface BaseService<T, Z> {
@@ -16,5 +14,7 @@ public interface BaseService<T, Z> {
 
     void deleteALl() throws Exception;
 
-    Page<T> getPageable(String sSearch) throws Exception;
+    List<T> getPageable(String sSearch) throws Exception;
+
+    T updateById(Z pk, T wrapper) throws Exception;
 }

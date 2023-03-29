@@ -6,7 +6,6 @@ import com.rezalab.shopsmartly.service.user.UserInfoService;
 import com.rezalab.shopsmartly.service.user.wrapper.UserInfoWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -85,7 +84,13 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public Page<UserInfoWrapper> getPageable(String sSearch) throws Exception {
+    public List<UserInfoWrapper> getPageable(String sSearch) throws Exception {
+        // not implemented
+        return null;
+    }
+
+    @Override
+    public UserInfoWrapper updateById(Long pk, UserInfoWrapper wrapper) throws Exception {
         // not implemented
         return null;
     }

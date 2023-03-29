@@ -6,8 +6,6 @@ import com.rezalab.shopsmartly.service.master.RoleService;
 import com.rezalab.shopsmartly.service.master.wrapper.RoleWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -79,11 +77,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Page<RoleWrapper> getPageable(String sSearch) throws Exception {
+    public List<RoleWrapper> getPageable(String sSearch) throws Exception {
         try {
-            Page<Role> bookPage = roleRepository.getPageable(sSearch);
-            List<RoleWrapper> wrapperList = toWrapperList(bookPage.getContent());
-            return new PageImpl<>(wrapperList, null, bookPage.getTotalElements());
+            List<Role> bookPage = roleRepository.getPageable(sSearch);
+            List<RoleWrapper> wrapperList = toWrapperList(bookPage);
+            return wrapperList;
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e.getCause());
         }
@@ -100,4 +98,20 @@ public class RoleServiceImpl implements RoleService {
         Optional<Role> model = roleRepository.findByNameAndActiveTrue(name);
         return model.map(this::toWrapper).orElse(null);
     }
+
+    @Override
+    public RoleWrapper updateById(Long pk, RoleWrapper wrapper) throws Exception {
+        Optional<Role> model = roleRepository.findById(pk);
+        if (model != null && !model.isEmpty()) {
+            Role modelOld = model.get();
+            modelOld.setCode(wrapper.getCode());
+            modelOld.setName(wrapper.getName());
+            modelOld.setUpdatedBy(null);
+            modelOld.setVersion(wrapper.getVersion());
+            return toWrapper(roleRepository.save(modelOld));
+        } else {
+            return save(wrapper);
+        }
+    }
+
 }

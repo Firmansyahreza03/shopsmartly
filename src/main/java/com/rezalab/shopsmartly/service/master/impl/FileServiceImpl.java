@@ -6,7 +6,7 @@ import com.rezalab.shopsmartly.service.master.FileService;
 import com.rezalab.shopsmartly.service.master.wrapper.FileWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -78,7 +78,13 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public Page<FileWrapper> getPageable(String sSearch) throws Exception {
+    public List<FileWrapper> getPageable(String sSearch) throws Exception {
+        // not implemented
+        return null;
+    }
+
+    @Override
+    public FileWrapper updateById(Long pk, FileWrapper wrapper) throws Exception {
         // not implemented
         return null;
     }

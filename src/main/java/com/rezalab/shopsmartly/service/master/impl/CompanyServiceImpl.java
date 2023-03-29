@@ -6,8 +6,6 @@ import com.rezalab.shopsmartly.service.master.CompanyService;
 import com.rezalab.shopsmartly.service.master.wrapper.CompanyWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -79,14 +77,20 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Page<CompanyWrapper> getPageable(String sSearch) throws Exception {
+    public List<CompanyWrapper> getPageable(String sSearch) throws Exception {
         try {
-            Page<Company> bookPage = companyRepository.getPageable(sSearch);
-            List<CompanyWrapper> wrapperList = toWrapperList(bookPage.getContent());
-            return new PageImpl<>(wrapperList, null, bookPage.getTotalElements());
+            List<Company> bookPage = companyRepository.getPageable(sSearch);
+            List<CompanyWrapper> wrapperList = toWrapperList(bookPage);
+            return wrapperList;
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e.getCause());
         }
+    }
+
+    @Override
+    public CompanyWrapper updateById(Long pk, CompanyWrapper wrapper) throws Exception {
+        // not implemented
+        return null;
     }
 
     @Override

@@ -10,9 +10,7 @@ import com.rezalab.shopsmartly.repository.user.UserModuleRepository;
 import com.rezalab.shopsmartly.repository.user.UserProfileRepository;
 import com.rezalab.shopsmartly.service.user.UserModuleService;
 import com.rezalab.shopsmartly.service.user.wrapper.UserModuleWrapper;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -136,7 +134,13 @@ public class UserModuleServiceImpl implements UserModuleService {
     }
 
     @Override
-    public Page<UserModuleWrapper> getPageable(String sSearch) throws Exception {
+    public List<UserModuleWrapper> getPageable(String sSearch) throws Exception {
+        // not implemented
+        return null;
+    }
+
+    @Override
+    public UserModuleWrapper updateById(Long pk, UserModuleWrapper wrapper) throws Exception {
         // not implemented
         return null;
     }

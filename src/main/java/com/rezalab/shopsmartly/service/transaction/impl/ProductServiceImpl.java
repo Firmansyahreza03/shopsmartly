@@ -6,8 +6,6 @@ import com.rezalab.shopsmartly.service.transaction.ProductService;
 import com.rezalab.shopsmartly.service.transaction.wrapper.ProductWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -79,14 +77,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<ProductWrapper> getPageable(String sSearch) throws Exception {
+    public List<ProductWrapper> getPageable(String sSearch) throws Exception {
         try {
-            Page<Product> bookPage = productRepository.getPageale(sSearch);
-            List<ProductWrapper> wrapperList = toWrapperList(bookPage.getContent());
-            return new PageImpl<>(wrapperList, null, bookPage.getTotalElements());
+            List<Product> bookPage = productRepository.getPageable(sSearch);
+            List<ProductWrapper> wrapperList = toWrapperList(bookPage);
+            return wrapperList;
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e.getCause());
         }
+    }
+
+    @Override
+    public ProductWrapper updateById(Long pk, ProductWrapper wrapper) throws Exception {
+        // not implemented
+        return null;
     }
 
     @Override

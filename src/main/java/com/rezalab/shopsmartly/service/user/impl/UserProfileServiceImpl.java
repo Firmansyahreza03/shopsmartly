@@ -7,7 +7,6 @@ import com.rezalab.shopsmartly.repository.user.UserProfileRepository;
 import com.rezalab.shopsmartly.service.user.UserProfileService;
 import com.rezalab.shopsmartly.service.user.wrapper.UserProfileWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -117,7 +116,13 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     @Override
-    public Page<UserProfileWrapper> getPageable(String sSearch) throws Exception {
+    public List<UserProfileWrapper> getPageable(String sSearch) throws Exception {
+        // not implemented
+        return null;
+    }
+
+    @Override
+    public UserProfileWrapper updateById(Long pk, UserProfileWrapper wrapper) throws Exception {
         // not implemented
         return null;
     }

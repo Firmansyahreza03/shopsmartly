@@ -7,4 +7,6 @@ public interface RoleService extends BaseService<RoleWrapper, Long> {
     RoleWrapper findByCode(String code) throws Exception;
 
     RoleWrapper findByName(String name) throws Exception;
+
+    RoleWrapper updateById(Long pk, RoleWrapper wrapper) throws Exception;
 }

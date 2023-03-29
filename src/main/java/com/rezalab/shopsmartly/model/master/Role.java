@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Role extends BaseModel {
     @Column(name = "role_name")
     private String name;
-    @Column(name = "role_code", unique = true)
+    @Column(name = "role_code", unique = true, length = 4)
     private String code;
 
     public String getName() {return name;}

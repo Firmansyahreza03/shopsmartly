@@ -8,7 +8,6 @@ import com.rezalab.shopsmartly.service.user.UserAccountService;
 import com.rezalab.shopsmartly.service.user.wrapper.UserAccountWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -100,7 +99,13 @@ public class UserAccountServiceImpl implements UserAccountService {
     }
 
     @Override
-    public Page<UserAccountWrapper> getPageable(String sSearch) throws Exception {
+    public List<UserAccountWrapper> getPageable(String sSearch) throws Exception {
+        // not implemented
+        return null;
+    }
+
+    @Override
+    public UserAccountWrapper updateById(Long pk, UserAccountWrapper wrapper) throws Exception {
         // not implemented
         return null;
     }
