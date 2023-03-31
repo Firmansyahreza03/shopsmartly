@@ -6,6 +6,7 @@ import com.rezalab.shopsmartly.repository.master.FileRepository;
 import com.rezalab.shopsmartly.repository.user.UserProfileRepository;
 import com.rezalab.shopsmartly.service.user.UserProfileService;
 import com.rezalab.shopsmartly.service.user.wrapper.UserProfileWrapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     private UserProfile toEntity(UserProfileWrapper wrapper) {
         UserProfile model = new UserProfile();
-        model.setAddress(wrapper.getAddress());
-
+        BeanUtils.copyProperties(wrapper, model);
         Optional<File> fileOpt = null;
         if (wrapper.getFileId() != null) {
             fileOpt = fileRepository.findById(wrapper.getFileId());
@@ -34,39 +34,16 @@ public class UserProfileServiceImpl implements UserProfileService {
             fileOpt = fileRepository.findByFileConvertedAndActiveTrue(wrapper.getFileConverted());
         }
         model.setFile(fileOpt.orElse(null));
-
-        model.setName(wrapper.getName());
-        model.setActive(wrapper.getActive());
-        model.setId(wrapper.getId());
-        model.setSecondAddress(wrapper.getSecondAddress());
-        model.setCreatedAt(wrapper.getCreatedAt());
-        model.setCreatedBy(wrapper.getCreatedBy());
-        model.setUpdatedAt(wrapper.getUpdatedAt());
-        model.setUpdatedBy(wrapper.getUpdatedBy());
-        model.setVersion(wrapper.getVersion());
-
         return model;
     }
 
     private UserProfileWrapper toWrapper(UserProfile model) {
         UserProfileWrapper wrapper = new UserProfileWrapper();
-        wrapper.setAddress(model.getAddress());
-
+        BeanUtils.copyProperties(model, wrapper);
         if (model.getFile() != null) {
             wrapper.setFileId(model.getFile().getId());
             wrapper.setFileConverted(model.getFile().getFileConverted());
         }
-
-        wrapper.setName(model.getName());
-        wrapper.setActive(model.getActive());
-        wrapper.setId(model.getId());
-        wrapper.setSecondAddress(model.getSecondAddress());
-        wrapper.setCreatedAt(model.getCreatedAt());
-        wrapper.setCreatedBy(model.getCreatedBy());
-        wrapper.setUpdatedAt(model.getUpdatedAt());
-        wrapper.setUpdatedBy(model.getUpdatedBy());
-        wrapper.setVersion(model.getVersion());
-
         return wrapper;
     }
 
