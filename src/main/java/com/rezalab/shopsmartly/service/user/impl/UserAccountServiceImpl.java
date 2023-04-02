@@ -8,6 +8,9 @@ import com.rezalab.shopsmartly.service.user.UserAccountService;
 import com.rezalab.shopsmartly.service.user.wrapper.UserAccountWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -108,5 +111,14 @@ public class UserAccountServiceImpl implements UserAccountService {
     public UserAccountWrapper updateById(Long pk, UserAccountWrapper wrapper) throws Exception {
         // not implemented
         return null;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserAccountWrapper account = findByEmail(email);
+        if(account == null) {
+            throw new RuntimeException("Pengguna tidak ditemukan");
+        }
+        return new User(email, account.getPassword(), new ArrayList<>());
     }
 }

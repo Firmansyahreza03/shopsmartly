@@ -51,7 +51,7 @@ public class RoleController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/code")
     public ResponseEntity<Response> findByCode(@RequestParam String code) throws Exception {
         RoleWrapper data = roleService.findByCode(code);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYCODE + data.getCode(),
@@ -59,7 +59,7 @@ public class RoleController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/name")
     public ResponseEntity<Response> findByName(@RequestParam String name) throws Exception {
         RoleWrapper data = roleService.findByName(name);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYNAME + data.getName(),

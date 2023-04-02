@@ -15,7 +15,7 @@ public class WebIgnoringConfig {
 
     @Bean
     public List<RequestMatcher> antMatchers() {
-        matchers.add(new AntPathRequestMatcher("/login", HttpMethod.POST.name()));
+        matchers.add(new AntPathRequestMatcher("/user-account/login", HttpMethod.POST.name()));
         return matchers;
     }
 }

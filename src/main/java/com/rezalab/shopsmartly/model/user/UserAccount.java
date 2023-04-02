@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class UserAccount extends BaseModel {
     @Column(name = "user_email", unique = true)
     private String email;
-    @Column(name = "user_password", length = 16)
+    @Column(name = "user_password", columnDefinition = "TEXT")
     private String password;
     @ManyToOne
     @JoinColumn(name = "role_id")

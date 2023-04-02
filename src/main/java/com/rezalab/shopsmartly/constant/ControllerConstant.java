@@ -16,4 +16,7 @@ public class ControllerConstant {
 
     public static String SUCCESS_UPDATE = "Berhasil diupdate";
     public static String FAILED_UPDATE = "Data tidak berhasil diupdate/simpan";
+
+    public static String LOGIN_SUCCESS = "Login berhasil";
+    public static String LOGIN_FAILED = "Salah email atau password";
 }

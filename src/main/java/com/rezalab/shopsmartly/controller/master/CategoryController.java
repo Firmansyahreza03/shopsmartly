@@ -50,7 +50,7 @@ public class CategoryController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/page")
     public ResponseEntity<Response> getPageable(@RequestParam String sSearch) throws Exception {
         List<CategoryWrapper> data = categoryService.getPageable(sSearch);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDALL,
@@ -58,7 +58,7 @@ public class CategoryController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/name")
     public ResponseEntity<Response> findByName(@RequestParam String name) throws Exception {
         CategoryWrapper data = categoryService.findByName(name);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYNAME + data.getName(),
@@ -66,7 +66,7 @@ public class CategoryController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/code")
     public ResponseEntity<Response> findByCode(@RequestParam String code) throws Exception {
         CategoryWrapper data = categoryService.findByCode(code);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYCODE + data.getCode(),

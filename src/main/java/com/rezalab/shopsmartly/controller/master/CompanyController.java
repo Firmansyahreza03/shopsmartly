@@ -50,7 +50,7 @@ public class CompanyController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/page")
     public ResponseEntity<Response> getPageable(@RequestParam String sSearch) throws Exception {
         List<CompanyWrapper> data = companyService.getPageable(sSearch);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDALL,
@@ -58,7 +58,7 @@ public class CompanyController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/name")
     public ResponseEntity<Response> findByName(@RequestParam String name) throws Exception {
         CompanyWrapper data = companyService.findByName(name);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYNAME + data.getName(),
@@ -66,7 +66,7 @@ public class CompanyController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/address")
     public ResponseEntity<Response> findByAddress(@RequestParam String address) throws Exception {
         CompanyWrapper data = companyService.findByAddress(address);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYADDRESS + data.getAddress(),
@@ -74,7 +74,7 @@ public class CompanyController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/zip")
     public ResponseEntity<Response> findByZip(@RequestParam String zip) throws Exception {
         CompanyWrapper data = companyService.findByZip(zip);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYCODE + data.getZip(),
@@ -82,7 +82,7 @@ public class CompanyController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping
+    @GetMapping("/phone")
     public ResponseEntity<Response> findByPhoneNumber(@RequestParam String phoneNumber) throws Exception {
         CompanyWrapper data = companyService.findByPhoneNumber(phoneNumber);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYPHONE + data.getPhoneNumber(),

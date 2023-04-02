@@ -19,7 +19,7 @@ public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
 
-    @GetMapping
+    @GetMapping("/join")
     public ResponseEntity<Response> findByJoinDate(@RequestParam LocalDate date) throws Exception {
         List<UserInfoWrapper> data = userInfoService.findByJoinDate(date);
         Response response = toResponse(data, ControllerConstant.SUCCESS_FINDBYJOINDATE + date,
