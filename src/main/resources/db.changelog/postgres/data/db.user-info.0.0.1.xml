@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="now" value="sysdate" dbms="postgres" />
+
+    <changeSet author="m@P"
+               id="insert-or-update-user-info-0.0.1">
+        <loadUpdateData encoding="UTF-8"
+                        file="db/changelog/postgres/data/csv/user-info/user-info.0.0.1.csv" primaryKey="id"
+                        quotchar='"' separator=";" tableName="user_info">
+        </loadUpdateData>
+    </changeSet>
+
+</databaseChangeLog>

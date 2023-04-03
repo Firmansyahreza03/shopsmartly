@@ -1,0 +1,5 @@
+"created_by","created_at","updated_by","updated_at","active","version","role_name","role_code"
+"liquibase","2023-04-03 10:57:02.500","liquibase","2023-04-03 10:57:02.500",True,1,"SYSTEM ADMINISTRATOR","SYAD"
+"liquibase","2023-04-03 10:57:02.500","liquibase","2023-04-03 10:57:02.500",True,1,"ADMIN","ADMN"
+"liquibase","2023-04-03 10:57:02.500","liquibase","2023-04-03 10:57:02.500",True,1,"PRODUCT MANAGER","PRDM"
+"liquibase","2023-04-03 10:57:02.500","liquibase","2023-04-03 10:57:02.500",True,1,"CUSTOMER","CUST"

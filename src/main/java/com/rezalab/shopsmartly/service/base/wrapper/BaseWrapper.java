@@ -7,9 +7,9 @@ public class BaseWrapper implements Serializable {
     private static final long serialVersionUID = -6873422493435889366L;
 
     private Long id;
-    private Long createdBy;
+    private String createdBy;
     private LocalDateTime createdAt;
-    private Long updatedBy;
+    private String updatedBy;
     private LocalDateTime updatedAt;
     private Boolean active;
     private Integer version;
@@ -18,17 +18,17 @@ public class BaseWrapper implements Serializable {
 
     public void setId(Long id) {this.id = id;}
 
-    public Long getCreatedBy() {return createdBy;}
+    public String getCreatedBy() {return createdBy;}
 
-    public void setCreatedBy(Long createdBy) {this.createdBy = createdBy;}
+    public void setCreatedBy(String createdBy) {this.createdBy = createdBy;}
 
     public LocalDateTime getCreatedAt() {return createdAt;}
 
     public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
 
-    public Long getUpdatedBy() {return updatedBy;}
+    public String getUpdatedBy() {return updatedBy;}
 
-    public void setUpdatedBy(Long updatedBy) {this.updatedBy = updatedBy;}
+    public void setUpdatedBy(String updatedBy) {this.updatedBy = updatedBy;}
 
     public LocalDateTime getUpdatedAt() {return updatedAt;}
 

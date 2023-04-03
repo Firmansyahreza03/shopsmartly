@@ -11,13 +11,13 @@ public class BaseModel {
     private Long id;
 
     @Column(name = "created_by")
-    private Long createdBy;
+    private String createdBy;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_by")
-    private Long updatedBy;
+    private String updatedBy;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
@@ -36,17 +36,17 @@ public class BaseModel {
 
     public void setId(Long id) {this.id = id;}
 
-    public Long getCreatedBy() {return createdBy;}
+    public String getCreatedBy() {return createdBy;}
 
-    public void setCreatedBy(Long createdBy) {this.createdBy = createdBy;}
+    public void setCreatedBy(String createdBy) {this.createdBy = createdBy;}
 
     public LocalDateTime getCreatedAt() {return createdAt;}
 
     public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
 
-    public Long getUpdatedBy() {return updatedBy;}
+    public String getUpdatedBy() {return updatedBy;}
 
-    public void setUpdatedBy(Long updatedBy) {this.updatedBy = updatedBy;}
+    public void setUpdatedBy(String updatedBy) {this.updatedBy = updatedBy;}
 
     public LocalDateTime getUpdatedAt() {return updatedAt;}
 

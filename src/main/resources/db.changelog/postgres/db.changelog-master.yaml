@@ -1,0 +1,21 @@
+databaseChangeLog:
+
+#MASTER
+  - include:
+      file: db/changelog/postgres/data/db.category.0.0.1.xml
+  - include:
+      file: db/changelog/postgres/data/db.company.0.0.1.xml
+  - include:
+      file: db/changelog/postgres/data/db.role.0.0.1.xml
+  - include:
+      file: db/changelog/postgres/data/db.sub-category.0.0.1.xml
+
+#USER
+  - include:
+      file: db/changelog/postgres/data/db.user-account.0.0.1.xml
+  - include:
+      file: db/changelog/postgres/data/db.user-info.0.0.1.xml
+  - include:
+      file: db/changelog/postgres/data/db.user-module.0.0.1.xml
+  - include:
+      file: db/changelog/postgres/data/db.user-profile.0.0.1.xml
