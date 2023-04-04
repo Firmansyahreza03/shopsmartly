@@ -25,7 +25,6 @@ public class ShopSmartlyApplication {
 	public LiquibaseProperties liquibaseProperties() { return new LiquibaseProperties(); }
 
 	@Bean
-	@DependsOn(value = "entityManagerFactory")
 	public SpringLiquibase liquibase() {
 		LiquibaseProperties liquibaseProperties = liquibaseProperties();
 		SpringLiquibase liquibase = new SpringLiquibase();

@@ -1,2 +1,2 @@
 "created_by","created_at","updated_by","updated_at","active","version","join_date","last_login","is_logged_in","session_id","trial_login_attempt"
-"liquibase","2023-04-03 10:57:02.500","liquibase","2023-04-03 10:57:02.500",True,1,"2023-04-03 10:57:02.500",null,False,null,0
+"liquibase",now(),"liquibase",now(),True,1,now(),NULL,False,NULL,0

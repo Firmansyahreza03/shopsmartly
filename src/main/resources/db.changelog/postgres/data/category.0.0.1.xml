@@ -9,8 +9,8 @@
     <changeSet author="m@P"
         id="insert-or-update-category-0.0.1">
         <loadUpdateData encoding="UTF-8"
-            file="db/changelog/postgres/data/csv/category/db.category.0.0.1.csv" primaryKey="id"
-            quotchar='"' separator=";" tableName="product_category">
+            file="db.changelog/postgres/data/csv/category/db.category.0.0.1.csv" primaryKey="id"
+            quotchar='"' separator="," tableName="product_category">
         </loadUpdateData>
     </changeSet>
 

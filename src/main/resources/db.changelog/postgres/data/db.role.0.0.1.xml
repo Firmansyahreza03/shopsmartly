@@ -9,8 +9,8 @@
     <changeSet author="m@P"
                id="insert-or-update-role-0.0.1">
         <loadUpdateData encoding="UTF-8"
-                        file="db/changelog/postgres/data/csv/role/db.role.0.0.1.csv" primaryKey="id"
-                        quotchar='"' separator=";" tableName="user_role">
+                        file="db.changelog/postgres/data/csv/role/db.role.0.0.1.csv" primaryKey="id"
+                        quotchar='"' separator="," tableName="user_role">
         </loadUpdateData>
     </changeSet>
 

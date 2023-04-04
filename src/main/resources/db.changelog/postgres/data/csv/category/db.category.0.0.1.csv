@@ -1,0 +1,5 @@
+"created_by","created_at","updated_by","updated_at","active","version","category_name","category_code"
+"liquibase",now(),"liquibase",now(),True,1,"Makanan dan Minuman","A-0001"
+"liquibase",now(),"liquibase",now(),True,1,"Barang Kebutuhan Sehari - Hari","A-0002"
+"liquibase",now(),"liquibase",now(),True,1,"Produk Kesehatan","A-0003"
+"liquibase",now(),"liquibase",now(),True,1,"Rokok","A-0004"

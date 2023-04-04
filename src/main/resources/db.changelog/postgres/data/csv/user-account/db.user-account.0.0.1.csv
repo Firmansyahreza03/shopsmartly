@@ -1,0 +1,2 @@
+"created_by","created_at","updated_by","updated_at","active","version","user_email","user_password","role_id"
+"liquibase",now(),"liquibase",now(),True,1,"admin@gmail.com","$2a$12$V2HrPOgPd4fkfujDA0N7zOPYSJjbeBMcdER0yoybQ4Q9GCZTNqKCa",2

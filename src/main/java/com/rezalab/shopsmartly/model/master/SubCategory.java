@@ -2,17 +2,22 @@ package com.rezalab.shopsmartly.model.master;
 
 import com.rezalab.shopsmartly.model.base.BaseModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "product_sub_category")
 public class SubCategory extends BaseModel {
-    @Column(name = "name")
+    @Column(name = "category_name")
     private String name;
-    @Column(name = "code")
+    @Column(name = "category_code")
     private String code;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public Category getCategory() {return category;}
+
+    public void setCategory(Category category) {this.category = category;}
 
     public String getName() { return name; }
 

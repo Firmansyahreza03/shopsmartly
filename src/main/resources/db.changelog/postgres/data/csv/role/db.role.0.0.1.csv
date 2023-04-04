@@ -1,0 +1,5 @@
+"created_by","created_at","updated_by","updated_at","active","version","role_name","role_code"
+"liquibase",now(),"liquibase",now(),True,1,"SYSTEM ADMINISTRATOR","SYAD"
+"liquibase",now(),"liquibase",now(),True,1,"ADMIN","ADMN"
+"liquibase",now(),"liquibase",now(),True,1,"PRODUCT MANAGER","PRDM"
+"liquibase",now(),"liquibase",now(),True,1,"CUSTOMER","CUST"

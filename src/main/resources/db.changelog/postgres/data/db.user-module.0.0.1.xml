@@ -9,8 +9,8 @@
     <changeSet author="m@P"
                id="insert-or-update-user-module-0.0.1">
         <loadUpdateData encoding="UTF-8"
-                        file="db/changelog/postgres/data/csv/user-module/user-module.0.0.1.csv" primaryKey="id"
-                        quotchar='"' separator=";" tableName="user_module">
+                        file="db.changelog/postgres/data/csv/user-module/db.user-module.0.0.1.csv" primaryKey="id"
+                        quotchar='"' separator="," tableName="user_module">
         </loadUpdateData>
     </changeSet>
 

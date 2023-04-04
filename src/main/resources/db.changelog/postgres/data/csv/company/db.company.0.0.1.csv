@@ -1,0 +1,3 @@
+"created_by","created_at","updated_by","updated_at","active","version","company_name","address","second_address","zip_code","phone_number"
+"liquibase",now(),"liquibase",now(),True,1,"PT Sentosa Abadi","Jl. Sudirman No. 123","Jakarta Pusat","10210","(021) 12345678"
+"liquibase",now(),"liquibase",now(),True,1,"PT Cahaya Bintang","Jl. Raya Bogor Km. 20","Depok","16956","(021) 76543210"
